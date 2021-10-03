@@ -11,8 +11,19 @@ import javax.persistence.*;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
-//@Table(uniqueConstraints = {@UniqueConstraint(columnNames = {"corpName", "address_id"})})
-public class Warehouse extends AbsEntity {
+public class Attachment extends AbsEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
+    @Column(nullable = false, unique = true)
+    private String name;
+
+    @Column
+    private Long size;
+
+    @Column
+    private String contentType;
 }
