@@ -1,11 +1,11 @@
 package com.example.task221.projection;
 
-import com.example.task221.entity.Warehouse;
+import com.example.task221.entity.Supplier;
 import org.springframework.data.rest.core.config.Projection;
 
-@Projection(types = {Warehouse.class})
-public interface CustomWarehouse {
+@Projection(types = Supplier.class)
+public interface CustomSupplier {
     Integer getId();
     String getName();
-
+    Integer getPhoneNumber();
 }

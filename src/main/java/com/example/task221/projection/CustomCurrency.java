@@ -1,11 +1,11 @@
 package com.example.task221.projection;
 
-import com.example.task221.entity.Warehouse;
+import com.example.task221.entity.Currency;
 import org.springframework.data.rest.core.config.Projection;
 
-@Projection(types = {Warehouse.class})
-public interface CustomWarehouse {
+@Projection(types = Currency.class)
+public interface CustomCurrency {
     Integer getId();
     String getName();
-
+    boolean getActive();
 }
