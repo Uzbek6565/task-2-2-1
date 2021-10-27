@@ -4,6 +4,7 @@ import com.example.task221.entity.Warehouse;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.rest.core.annotation.RestResource;
 
 import javax.persistence.*;
 import java.util.List;
@@ -37,6 +38,9 @@ public class User {
     @Column(nullable = false)
     private boolean active = true;
 
-    @ManyToMany
-    private Set<Warehouse> warehouseList;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "user_warehouse",
+    joinColumns = @JoinColumn(name = "users_id", referencedColumnName = "id"),
+    inverseJoinColumns = @JoinColumn(name = "warehouse_id", referencedColumnName = "id"))
+    private List<Warehouse> warehouseSet;
 }

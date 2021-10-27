@@ -7,6 +7,8 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
@@ -14,5 +16,6 @@ import javax.persistence.*;
 @Entity
 //@Table(uniqueConstraints = {@UniqueConstraint(columnNames = {"corpName", "address_id"})})
 public class Warehouse extends AbsEntity {
-
+    @ManyToMany(mappedBy = "warehouses")
+    private List<User> userSet;
 }
