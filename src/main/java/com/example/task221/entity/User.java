@@ -40,7 +40,7 @@ public class User {
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "user_warehouse",
-    joinColumns = @JoinColumn(name = "users_id", referencedColumnName = "id"),
-    inverseJoinColumns = @JoinColumn(name = "warehouse_id", referencedColumnName = "id"))
-    private List<Warehouse> warehouseSet;
+    joinColumns = @JoinColumn(name = "warehouses_id"),
+    inverseJoinColumns = @JoinColumn(name = "users_id"))
+    private Set<Warehouse> warehouses;
 }
